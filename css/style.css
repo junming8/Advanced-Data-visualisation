@@ -1,0 +1,410 @@
+.tooltip {
+    position: absolute;
+    visibility: hidden; /* Initially hidden */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    color: white; /* White text */
+    padding: 5px 10px; /* Small padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Small font size */
+    pointer-events: none; /* Prevents tooltip from interfering with mouse events */
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 125px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 150px; /* Align content next to sidebar */
+  padding: 20px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Text boxes */
+.text-box {
+  background-color: #e9f7fa;
+  padding: 20px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Title inside text boxes */
+.text-box h2 {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #0077b6;
+}
+
+/* Bullet points inside text boxes */
+.text-box ul {
+  padding-left: 20px;
+  list-style-type: disc;
+  font-size: 16px;
+  color: #555;
+}
+
+.text-box li {
+  margin-bottom: 5px;
+}
+
+/* Chart container as a grid */
+.charts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+  gap: 10px; /* Space between each chart */
+  align-items: stretch;
+}
+
+/* Each individual chart container */
+.chart {
+  max-height: 100%;
+  background-color: #f0f4f8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  position: relative;
+}
+/* Individual chart container styles */
+#stackedBarChart {
+  height: 300px;
+  width:600px;
+  max-height: 100%;
+  background-color: #f0f4f8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  position: relative;
+  margin-right:2%;
+  margin-left:60px;
+  margin-top:2%;
+
+}
+
+#timeline {
+  height: 200px;
+  width:600px;
+  max-height: 100%;
+  background-color: #f0f4f8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  border: 1px solid #ccc;
+  position: relative;
+  margin-left:20%;
+
+}
+#mapContainer{
+  height: 350px;
+  width:600px;
+  max-height: 100%;
+  background-color: #f0f4f8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  position: relative;
+  margin-left:20%;
+  margin-top:2%;
+}
+
+#barChart {
+  height: 300px;
+  width:600px;
+  max-height: 100%;
+  background-color: #f0f4f8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  border: 1px solid #ccc;
+  position: relative;
+  margin-right:2%;
+  margin-left:60px;
+  margin-top:-50px;
+
+}
+
+/* Dropdown layout */
+#alldropdowns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  height:15%;
+}
+
+/* Group the first three dropdowns to the left */
+#dropdown {
+  display: flex;
+  gap: 1px;
+  position: relative;
+  width:44%;
+  margin-left:10%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  user-select: none;
+  height: 100%;
+
+}
+
+/* Title styling for individual dropdowns */
+.dropdown-title {
+  font-weight: bold;
+  font-size: 15px;
+  color: #555;
+  text-transform: capitalize;
+  font-family: Arial, sans-serif;
+}
+
+/* Align the last dropdown to the right */
+#right-dropdown {
+  margin-right: 1.25%;
+  width:44%;
+  height:100%;
+}
+
+
+#dropdown select {
+  border: 1px solid #dee2e6;
+  padding: 7px 30px 7px 12px;
+  overflow: hidden;
+  min-height: 10px;
+  background-color: #fff;
+  font-size: 100%;
+  color: #212529;
+  border-radius: 5px;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23949ba3' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 10px;
+}
+
+#dropdown select:focus {
+  border-color: #c1c9d0;
+  outline: none;
+}
+
+
+
+#dropdown select option {
+  padding: 4px 12px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #212529;
+}
+
+/* For multi-select */
+.multi-select {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    position: relative;
+    user-select: none;
+  }
+  .multi-select .multi-select-header {
+    border: 1px solid #dee2e6;
+    padding: 7px 30px 7px 12px;
+    overflow: hidden;
+    gap: 5px;
+  }
+  .multi-select .multi-select-header::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    /* transform: translateY(-50%); */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23949ba3' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
+    height: 10px;
+    width: 10px;
+  }
+  .multi-select .multi-select-header.multi-select-header-active {
+    border-color: #c1c9d0;
+  }
+  .multi-select .multi-select-header.multi-select-header-active::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .multi-select .multi-select-header.multi-select-header-active + .multi-select-options {
+    display: flex;
+  }
+  .multi-select .multi-select-header .multi-select-header-placeholder {
+    color: #65727e;
+  }
+  .multi-select .multi-select-header .multi-select-header-option {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f3f4f7;
+    font-size: 15px;
+    padding: 3px 8px;
+    border-radius: 7px;
+  }
+  .multi-select .multi-select-header .multi-select-header-max {
+    font-size: 1px;
+    color: #65727e;
+  }
+  .multi-select .multi-select-options {
+    display: none;
+    box-sizing: border-box;
+    flex-flow: wrap;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .multi-select .multi-select-options::-webkit-scrollbar {
+    width: 5px;
+  }
+  .multi-select .multi-select-options::-webkit-scrollbar-track {
+    background: #f0f1f3;
+  }
+  .multi-select .multi-select-options::-webkit-scrollbar-thumb {
+    background: #cdcfd1;
+  }
+  .multi-select .multi-select-options::-webkit-scrollbar-thumb:hover {
+    background: #b2b6b9;
+  }
+  .multi-select .multi-select-options .multi-select-option, .multi-select .multi-select-options .multi-select-all {
+    padding: 4px 12px;
+    height: 42px;
+  }
+  .multi-select .multi-select-options .multi-select-option .multi-select-option-radio, .multi-select .multi-select-options .multi-select-all .multi-select-option-radio {
+    margin-right: 14px;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  .multi-select .multi-select-options .multi-select-option .multi-select-option-text, .multi-select .multi-select-options .multi-select-all .multi-select-option-text {
+    box-sizing: border-box;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: inherit;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio, .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio {
+    border-color: #40c979;
+    background-color: #40c979;
+  }
+  .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-radio::after, .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-radio::after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 7px;
+    margin: 0.12em 0 0 0.27em;
+    border: solid #fff;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+  }
+  .multi-select .multi-select-options .multi-select-option.multi-select-selected .multi-select-option-text, .multi-select .multi-select-options .multi-select-all.multi-select-selected .multi-select-option-text {
+    color: #40c979;
+  }
+  .multi-select .multi-select-options .multi-select-option:hover, .multi-select .multi-select-options .multi-select-option:active, .multi-select .multi-select-options .multi-select-all:hover, .multi-select .multi-select-options .multi-select-all:active {
+    background-color: #f3f4f7;
+  }
+  .multi-select .multi-select-options .multi-select-all {
+    border-bottom: 1px solid #f1f3f5;
+    border-radius: 0;
+  }
+  .multi-select .multi-select-options .multi-select-search {
+    padding: 7px 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin: 10px 10px 5px 10px;
+    outline: none;
+    font-size: 16px;
+  }
+  .multi-select .multi-select-options .multi-select-search::placeholder {
+    color: #b2b5b9;
+  }
+  .multi-select .multi-select-header, .multi-select .multi-select-option, .multi-select .multi-select-all {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 100%;
+    color: #212529;
+  }
+
+
